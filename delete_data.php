@@ -6,7 +6,7 @@ if ($id > 0) {
    $result = $conn->query($sql_old);
    $imgname = $result->fetch_assoc();
    if ($imgname['imgname'] != "") {
-      @unlink("uploaded/$imgname");
+      @unlink("uploaded/" . $imgname['imgname']);
    }
    $sql = "DELETE FROM `contact_details` WHERE contact_id = '$id'";
    $conn->query($sql);
